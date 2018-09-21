@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1><%= title %></h1>
+<p>您现在访问的是： <%= title %></p>
+<p>需要您授权的客户端应用是:  <%= client %></p>
+<p>客户端应用<%= client %>将获得你的如下权限信息：</p>
+<ul>
+    <%for (var p in permissions){%>
+        <li>✅<%=permissions[p]%></li>
+    <%}%>
+</ul>
+<a href="/oauth2/auth/agree" class="agree-btn">同意授权</a>
+<a href="/oauth2/auth/refuse" class="agree-btn">拒绝</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <p><a href="/users">访问vangogh开放平台上的用户受保护资源</a></p>
+    <% if(typeof data !== 'undefined'){ %>
+      <% if(typeof data.userId !== 'undefined'){ %>
+        <div>
+          <h2>userId: <%= data.userId %></h2>
+          <h2>userName:<%= data.userName %></h2>
+          <p>用户的年龄： <%= data.age %> </p>
+          <img src="<%= data.headerLogo %>"/>
+          <p>用户可使用的API列表：</p>
+          <ul>
+            <%for (var p in data.apiList){%>
+            <li>✅<%=data.apiList[p]%></li>
+            <%}%>
+          </ul>
+        </div>
+      <% } else {%>
+        <h2><%= data.message %></h2>
+      <% } %>
+    <% } %>
+  </body>
+</html>
